@@ -26,11 +26,11 @@ export default function TextForm(props) {
 
 
     return (
-        <div >
 
+        <div className={`text-${props.mode === 'light' ? 'dark' : 'light'}  bg-${props.mode}`}>
             <div className="container" >
                 <h2 id="emailHelp" className="heading">{props.heading}</h2>
-                <textarea type="email" className="form-control" value={text} rows="8" onChange={handleOnChange} autoFocus placeholder="Enter your text here" />
+                <textarea type="email" className="form-control" value={text} rows="8" onChange={handleOnChange} autoFocus placeholder="Enter your text here" style={{ backgroundColor: props.mode === 'dark' ? '#495057' : 'white' }} />
                 <button className="btn btn-primary my-4 mx-4" onClick={handleUpClick}>Uppercase</button>
                 <button className="btn btn-primary my-4 mx-4" onClick={handleLoClick}>Lowercase</button>
                 <button className="btn btn-primary my-4 mx-4" onClick={handleCapitalize}>Capitalise</button>
@@ -42,5 +42,6 @@ export default function TextForm(props) {
                 <p>Average read time : {0.008 * text.split(" ").length} minutes</p>
             </div>
         </div>
+
     )
 }
